@@ -68,8 +68,6 @@
     }
     .app-icon {
       position: absolute;
-      top: 55px;
-      left: 22px;
       width: 58px;
       height: 58px;
       background: white;
@@ -85,6 +83,16 @@
       width: 36px;
       height: 36px;
     }
+    /* Gmail 位置 */
+    .gmail {
+      top: 55px;
+      left: 22px;
+    }
+    /* YouTube 位置（在 Gmail 右边） */
+    .youtube {
+      top: 55px;
+      left: 95px;
+    }
   </style>
 </head>
 <body>
@@ -99,9 +107,14 @@
         <div></div>
       </div>
 
-      <!-- Gmail 图标（左上角） -->
-      <a href="mailto:089632147qq@gmail.com" class="app-icon">
+      <!-- Gmail 图标 -->
+      <a href="mailto:089632147qq@gmail.com" class="app-icon gmail">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
+      </a>
+
+      <!-- YouTube 图标 -->
+      <a href="https://youtube.com/@furongp_official?si=l_nUzaKEs9g8cNIE" class="app-icon youtube" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube">
       </a>
     </div>
   </div>
