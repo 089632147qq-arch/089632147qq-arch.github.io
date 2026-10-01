@@ -21,80 +21,101 @@
     .phone {
       width: 320px;
       height: 640px;
-      background: #000;
-      border-radius: 40px;
-      padding: 12px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      background: #111;
+      border-radius: 36px;
+      padding: 10px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
       position: relative;
     }
     .screen {
       width: 100%;
       height: 100%;
-      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
-      border-radius: 32px;
+      background: url('2026082314372678.jpg') center/cover no-repeat;
+      border-radius: 28px;
       overflow: hidden;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 50px;
     }
-    .notch {
+    /* 安卓中间挖孔 */
+    .punch-hole {
       position: absolute;
-      top: 0;
+      top: 18px;
       left: 50%;
       transform: translateX(-50%);
-      width: 150px;
-      height: 28px;
+      width: 18px;
+      height: 18px;
       background: #000;
-      border-radius: 0 0 18px 18px;
+      border-radius: 50%;
+      z-index: 10;
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.3);
+    }
+    .status-bar {
+      position: absolute;
+      top: 12px;
+      left: 0;
+      right: 0;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 18px;
+      color: #111;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 5;
     }
     .time {
-      color: white;
       font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 40px;
     }
     .app-icon {
-      width: 70px;
-      height: 70px;
+      position: absolute;
+      top: 55px;
+      left: 22px;
+      width: 58px;
+      height: 58px;
       background: white;
-      border-radius: 16px;
+      border-radius: 14px;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       text-decoration: none;
-      transition: transform 0.2s;
-    }
-    .app-icon:active {
-      transform: scale(0.92);
+      z-index: 5;
     }
     .app-icon img {
-      width: 42px;
-      height: 42px;
-    }
-    .logo-top {
-      position: absolute;
-      top: 45px;
-      left: 25px;
-      width: 50px;
-      opacity: 0.9;
+      width: 36px;
+      height: 36px;
     }
   </style>
 </head>
 <body>
   <div class="phone">
     <div class="screen">
-      <div class="notch"></div>
-      <img src="2026082314372678.jpg" class="logo-top" alt="Logo">
-      <div class="time">12:11</div>
-      
-      <!-- Gmail 图标 -->
+      <!-- 安卓中间挖孔 -->
+      <div class="punch-hole"></div>
+
+      <!-- 状态栏时间（实时） -->
+      <div class="status-bar">
+        <div class="time" id="clock">12:00</div>
+        <div></div>
+      </div>
+
+      <!-- Gmail 图标（左上角） -->
       <a href="mailto:089632147qq@gmail.com" class="app-icon">
         <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
       </a>
     </div>
   </div>
+
+  <script>
+    // 实时时间
+    function updateTime() {
+      const now = new Date();
+      let h = now.getHours().toString().padStart(2, '0');
+      let m = now.getMinutes().toString().padStart(2, '0');
+      document.getElementById('clock').textContent = h + ':' + m;
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+  </script>
 </body>
 </html>
