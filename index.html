@@ -4,97 +4,573 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FuRongX</title>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:#dfe2e2;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
-.phone{width:320px;height:640px;padding:10px;border-radius:37px;background:#0d0d0d;box-shadow:0 28px 65px rgba(0,0,0,.34)}
-.screen{position:relative;width:100%;height:100%;overflow:hidden;border-radius:28px;background:linear-gradient(145deg,#edf1ef 0%,#eee9df 48%,#d3dfe3 100%)}
-.punch-hole{position:absolute;z-index:20;top:15px;left:50%;transform:translateX(-50%);width:18px;height:18px;border-radius:50%;background:#000}
-.status{position:absolute;z-index:15;top:9px;left:0;right:0;height:28px;padding:0 17px;display:flex;align-items:center;justify-content:space-between;font-size:12px;font-weight:650}
-.hero{position:absolute;z-index:10;top:49px;left:21px;right:20px}
-.eyebrow{font-size:9px;letter-spacing:2px;text-transform:uppercase;opacity:.48;margin-bottom:5px}
-.name{font-size:31px;font-weight:850;letter-spacing:-1.7px}
-.subtitle{margin-top:6px;font-size:10px;opacity:.58}
-.grid{position:absolute;z-index:10;top:145px;left:20px;right:20px;display:grid;grid-template-columns:repeat(4,58px);justify-content:space-between;row-gap:17px}
-.app{width:58px;text-decoration:none;color:#111;display:flex;flex-direction:column;align-items:center}
-.icon{width:58px;height:58px;border-radius:15px;background:rgba(255,255,255,.94);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 15px rgba(0,0,0,.17);overflow:hidden}
-.icon img{width:34px;height:34px;object-fit:contain}
-.label{font-size:9px;font-weight:650;margin-top:5px}
-.app:nth-child(5){grid-column:2}.app:nth-child(6){grid-column:3}
-.note{position:absolute;z-index:10;left:20px;bottom:40px;font-size:9px;color:rgba(0,0,0,.48)}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#dfe2e2;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+}
+
+.phone{
+  width:320px;
+  height:640px;
+  padding:10px;
+  border-radius:37px;
+  background:#0d0d0d;
+  box-shadow:0 28px 65px rgba(0,0,0,.34);
+}
+
+.screen{
+  position:relative;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  border-radius:28px;
+  background:linear-gradient(
+    145deg,
+    #edf1ef 0%,
+    #eee9df 48%,
+    #d3dfe3 100%
+  );
+}
+
+.punch-hole{
+  position:absolute;
+  z-index:20;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:#000;
+}
+
+.status{
+  position:absolute;
+  z-index:15;
+  top:9px;
+  left:0;
+  right:0;
+  height:28px;
+  padding:0 17px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:12px;
+  font-weight:650;
+}
+
+.hero{
+  position:absolute;
+  z-index:10;
+  top:49px;
+  left:21px;
+  right:20px;
+}
+
+.eyebrow{
+  font-size:9px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  opacity:.48;
+  margin-bottom:5px;
+}
+
+.name{
+  font-size:31px;
+  font-weight:850;
+  letter-spacing:-1.7px;
+}
+
+.subtitle{
+  margin-top:6px;
+  font-size:10px;
+  opacity:.58;
+}
+
+.grid{
+  position:absolute;
+  z-index:10;
+  top:145px;
+  left:20px;
+  right:20px;
+  display:grid;
+  grid-template-columns:repeat(4,58px);
+  justify-content:space-between;
+  row-gap:17px;
+}
+
+.app{
+  width:58px;
+  text-decoration:none;
+  color:#111;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  /* 让点击反馈更自然 */
+  -webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;
+  transition:transform .14s ease;
+}
+
+.app:active{
+  transform:scale(.94);
+}
+
+.icon{
+  width:58px;
+  height:58px;
+  border-radius:15px;
+  background:rgba(255,255,255,.94);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 15px rgba(0,0,0,.17);
+  overflow:hidden;
+
+  transition:
+    box-shadow .14s ease,
+    transform .14s ease;
+}
+
+.app:active .icon{
+  box-shadow:0 3px 8px rgba(0,0,0,.12);
+}
+
+.label{
+  font-size:9px;
+  font-weight:650;
+  margin-top:5px;
+}
+
+.app:nth-child(5){
+  grid-column:2;
+}
+
+.app:nth-child(6){
+  grid-column:3;
+}
+
+.note{
+  position:absolute;
+  z-index:10;
+  left:20px;
+  bottom:40px;
+  font-size:9px;
+  color:rgba(0,0,0,.48);
+}
+
+/* SVG 图标统一 */
+.icon svg{
+  display:block;
+  flex:none;
+}
 </style>
 </head>
+
 <body>
-<div class="phone"><main class="screen">
-<div class="punch-hole"></div>
-<div class="status"><span id="clock">12:00</span><span>▮▮▮　Wi-Fi</span></div>
 
-<section class="hero">
-  <div class="eyebrow">PERSONAL SPACE</div>
-  <div class="name">FuRongX</div>
-  <div class="subtitle">A small place for my links & accounts.</div>
-</section>
+<div class="phone">
+<main class="screen">
 
-<nav class="grid">
-  <!-- Gmail -->
-  <a class="app" href="mailto:089632147qq@gmail.com">
-    <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail"></span>
-    <span class="label">Gmail</span>
-  </a>
+  <div class="punch-hole"></div>
 
-  <!-- YouTube -->
-  <a class="app" href="https://youtube.com/@furongp_official" target="_blank">
-    <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube"></span>
-    <span class="label">YouTube</span>
-  </a>
+  <div class="status">
+    <span id="clock">12:00</span>
+    <span>▮▮▮　Wi-Fi</span>
+  </div>
 
-  <!-- Instagram -->
-  <a class="app" href="https://www.instagram.com/089632147qq" target="_blank">
-    <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></span>
-    <span class="label">Instagram</span>
-  </a>
+  <section class="hero">
+    <div class="eyebrow">PERSONAL SPACE</div>
+    <div class="name">FuRongX</div>
+    <div class="subtitle">
+      A small place for my links & accounts.
+    </div>
+  </section>
 
-  <!-- X -->
-  <a class="app" href="https://x.com/FuRong_official" target="_blank">
-    <span class="icon"><img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X" style="filter:invert(1);width:26px;height:26px;"></span>
-    <span class="label">X</span>
-  </a>
 
-  <!-- Bilibili -->
-  <a class="app" href="https://b23.tv/gdRNrXW" target="_blank">
-    <span class="icon" style="background:#fff;">
-      <svg viewBox="0 0 100 100" width="40" height="40">
-        <path d="M28 22 L20 8" stroke="#00A1D6" stroke-width="6" stroke-linecap="round"/>
-        <path d="M72 22 L80 8" stroke="#00A1D6" stroke-width="6" stroke-linecap="round"/>
-        <rect x="18" y="22" width="64" height="52" rx="12" fill="#00A1D6"/>
-        <rect x="26" y="32" width="48" height="32" rx="8" fill="#fff"/>
-        <circle cx="40" cy="48" r="5" fill="#00A1D6"/>
-        <circle cx="60" cy="48" r="5" fill="#00A1D6"/>
-      </svg>
-    </span>
-    <span class="label">Bilibili</span>
-  </a>
+  <nav class="grid">
 
-  <!-- Discord -->
-  <a class="app" href="https://discord.gg/qTxFjK8Ta" target="_blank">
-    <span class="icon">
-      <img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0a6a49cf127bf92de1e2_icon_clyde_blurple_RGB.png" alt="Discord" style="width:36px;height:36px;">
-    </span>
-    <span class="label">Discord</span>
-  </a>
-</nav>
+    <!-- Gmail -->
+    <a class="app" href="mailto:089632147qq@gmail.com">
+      <span class="icon">
+        <svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true">
+          <path
+            d="M10 18.5
+               C10 15.46 12.46 13 15.5 13
+               H48.5
+               C51.54 13 54 15.46 54 18.5
+               V45.5
+               C54 48.54 51.54 51 48.5 51
+               H15.5
+               C12.46 51 10 48.54 10 45.5
+               Z"
+            fill="#fff"
+          />
 
-<div class="note"><b>FuRongX</b><br>links, profiles & places to find me.</div>
-</main></div>
+          <path
+            d="M11 18
+               L32 35
+               L53 18"
+            fill="none"
+            stroke="#EA4335"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M11 19
+               L11 46"
+            fill="none"
+            stroke="#4285F4"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M53 19
+               L53 46"
+            fill="none"
+            stroke="#34A853"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M11 18
+               L32 35
+               L53 18"
+            fill="none"
+            stroke="#FBBC04"
+            stroke-width="6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            opacity=".9"
+          />
+        </svg>
+      </span>
+
+      <span class="label">Gmail</span>
+    </a>
+
+
+    <!-- YouTube -->
+    <a
+      class="app"
+      href="https://youtube.com/@furongp_official"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="icon">
+        <svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true">
+
+          <rect
+            x="7"
+            y="16"
+            width="50"
+            height="32"
+            rx="11"
+            fill="#FF0000"
+          />
+
+          <path
+            d="M27 24
+               L27 40
+               L42 32
+               Z"
+            fill="#fff"
+          />
+
+        </svg>
+      </span>
+
+      <span class="label">YouTube</span>
+    </a>
+
+
+    <!-- Instagram -->
+    <a
+      class="app"
+      href="https://www.instagram.com/089632147qq"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="icon">
+        <svg viewBox="0 0 64 64" width="38" height="38" aria-hidden="true">
+
+          <defs>
+            <linearGradient
+              id="instagramGradient"
+              x1="8"
+              y1="56"
+              x2="56"
+              y2="8"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0" stop-color="#FFDD55"/>
+              <stop offset=".25" stop-color="#FF543E"/>
+              <stop offset=".55" stop-color="#C837AB"/>
+              <stop offset=".8" stop-color="#8A3AB9"/>
+              <stop offset="1" stop-color="#515BD4"/>
+            </linearGradient>
+          </defs>
+
+          <rect
+            x="8"
+            y="8"
+            width="48"
+            height="48"
+            rx="14"
+            fill="url(#instagramGradient)"
+          />
+
+          <rect
+            x="18"
+            y="18"
+            width="28"
+            height="28"
+            rx="9"
+            fill="none"
+            stroke="#fff"
+            stroke-width="4"
+          />
+
+          <circle
+            cx="32"
+            cy="32"
+            r="7"
+            fill="none"
+            stroke="#fff"
+            stroke-width="4"
+          />
+
+          <circle
+            cx="43"
+            cy="21"
+            r="3"
+            fill="#fff"
+          />
+
+        </svg>
+      </span>
+
+      <span class="label">Instagram</span>
+    </a>
+
+
+    <!-- X -->
+    <a
+      class="app"
+      href="https://x.com/FuRong_official"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="icon">
+        <svg viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
+
+          <path
+            d="M13 11
+               L27.5 30.5
+               L12 53
+               H18
+               L30.5 35
+               L44 53
+               H53
+               L37.5 32
+               L51 11
+               H45
+               L34.5 27
+               L22 11
+               Z"
+            fill="#000"
+          />
+
+        </svg>
+      </span>
+
+      <span class="label">X</span>
+    </a>
+
+
+    <!-- Bilibili -->
+    <a
+      class="app"
+      href="https://b23.tv/gdRNrXW"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="icon">
+
+        <svg
+          viewBox="0 0 100 100"
+          width="40"
+          height="40"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M28 22 L20 8"
+            stroke="#00A1D6"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M72 22 L80 8"
+            stroke="#00A1D6"
+            stroke-width="6"
+            stroke-linecap="round"
+          />
+
+          <rect
+            x="18"
+            y="22"
+            width="64"
+            height="52"
+            rx="12"
+            fill="#00A1D6"
+          />
+
+          <rect
+            x="26"
+            y="32"
+            width="48"
+            height="32"
+            rx="8"
+            fill="#fff"
+          />
+
+          <circle
+            cx="40"
+            cy="48"
+            r="5"
+            fill="#00A1D6"
+          />
+
+          <circle
+            cx="60"
+            cy="48"
+            r="5"
+            fill="#00A1D6"
+          />
+
+        </svg>
+
+      </span>
+
+      <span class="label">Bilibili</span>
+    </a>
+
+
+    <!-- Discord -->
+    <a
+      class="app"
+      href="https://discord.gg/qTxFjK8Ta"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="icon">
+
+        <svg
+          viewBox="0 0 64 64"
+          width="38"
+          height="38"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M18 16
+               C23 12 27 11 32 11
+               C37 11 41 12 46 16
+               C49 22 51 29 51 39
+               C46 43 41 46 36 48
+               L32 42
+               L28 48
+               C23 46 18 43 13 39
+               C13 29 15 22 18 16
+               Z"
+            fill="#5865F2"
+          />
+
+          <path
+            d="M22 23
+               C25 21 28 20 32 20
+               C36 20 39 21 42 23"
+            fill="none"
+            stroke="#fff"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+
+          <circle
+            cx="25"
+            cy="32"
+            r="4"
+            fill="#fff"
+          />
+
+          <circle
+            cx="39"
+            cy="32"
+            r="4"
+            fill="#fff"
+          />
+
+          <path
+            d="M21 38
+               C24 40 28 41 32 41
+               C36 41 40 40 43 38"
+            fill="none"
+            stroke="#fff"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+
+        </svg>
+
+      </span>
+
+      <span class="label">Discord</span>
+    </a>
+
+  </nav>
+
+
+  <div class="note">
+    <b>FuRongX</b><br>
+    links, profiles & places to find me.
+  </div>
+
+</main>
+</div>
+
 
 <script>
 function updateTime(){
   const n = new Date();
-  document.getElementById("clock").textContent = 
-    String(n.getHours()).padStart(2,"0") + ":" + String(n.getMinutes()).padStart(2,"0");
+
+  document.getElementById("clock").textContent =
+    String(n.getHours()).padStart(2,"0") +
+    ":" +
+    String(n.getMinutes()).padStart(2,"0");
 }
+
 updateTime();
 setInterval(updateTime, 1000);
 </script>
+
 </body>
 </html>
