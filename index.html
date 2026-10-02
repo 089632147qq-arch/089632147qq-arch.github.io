@@ -41,25 +41,29 @@
     position: relative;
   }
 
+  /* 左上角挖孔摄像头 */
+  .camera-hole {
+    position: absolute;
+    top: 14px;
+    left: 20px;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.25);
+    z-index: 10;
+  }
+
   /* 左上角实时时间 */
   .clock {
     position: absolute;
-    top: 24px;
-    left: 28px;
-    color: #111;
-  }
-
-  .clock .time {
-    font-size: 40px;
-    font-weight: 300;
+    top: 44px;
+    left: 24px;
+    color: #3a3a3a;
+    font-size: 44px;
+    font-weight: 700;
     letter-spacing: 1px;
     line-height: 1;
-  }
-
-  .clock .date {
-    font-size: 13px;
-    color: #666;
-    margin-top: 6px;
   }
 </style>
 </head>
@@ -67,10 +71,8 @@
 
   <div class="phone">
     <div class="screen">
-      <div class="clock">
-        <div class="time" id="time">--:--</div>
-        <div class="date" id="date"></div>
-      </div>
+      <div class="camera-hole"></div>
+      <div class="clock" id="clock">--:--:--</div>
     </div>
   </div>
 
@@ -80,12 +82,9 @@
 
       const h = String(now.getHours()).padStart(2, "0");
       const m = String(now.getMinutes()).padStart(2, "0");
-      document.getElementById("time").textContent = `${h}:${m}`;
+      const s = String(now.getSeconds()).padStart(2, "0");
 
-      const week = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"][now.getDay()];
-      const month = now.getMonth() + 1;
-      const day = now.getDate();
-      document.getElementById("date").textContent = `${month}月${day}日 ${week}`;
+      document.getElementById("clock").textContent = `${h}:${m}:${s}`;
     }
 
     updateClock();
