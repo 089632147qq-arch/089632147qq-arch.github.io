@@ -41,29 +41,38 @@
     position: relative;
   }
 
-  /* 左上角挖孔摄像头 */
-  .camera-hole {
-    position: absolute;
-    top: 14px;
-    left: 20px;
-    width: 12px;
-    height: 12px;
-    background: #000;
-    border-radius: 50%;
-    box-shadow: inset 0 0 3px rgba(255, 255, 255, 0.25);
-    z-index: 10;
+  /* 顶部状态栏 */
+  .status-bar {
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 22px;
+    position: relative;
   }
 
-  /* 左上角实时时间 */
-  .clock {
+  /* 左上角时间 */
+  .status-time {
+    font-size: 15px;
+    font-weight: 500;
+    color: #111;
+  }
+
+  /* 正中间挖孔摄像头 */
+  .camera-hole {
     position: absolute;
-    top: 44px;
-    left: 24px;
-    color: #3a3a3a;
-    font-size: 44px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    line-height: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    background: #000;
+    border-radius: 50%;
+  }
+
+  /* 右侧留白（对应状态栏图标区） */
+  .status-right {
+    width: 60px;
   }
 </style>
 </head>
@@ -71,19 +80,21 @@
 
   <div class="phone">
     <div class="screen">
-      <div class="camera-hole"></div>
-      <div class="clock" id="clock">--:--:--</div>
+      <!-- 状态栏 -->
+      <div class="status-bar">
+        <span class="status-time" id="clock">14:12:34</span>
+        <div class="camera-hole"></div>
+        <div class="status-right"></div>
+      </div>
     </div>
   </div>
 
   <script>
     function updateClock() {
       const now = new Date();
-
       const h = String(now.getHours()).padStart(2, "0");
       const m = String(now.getMinutes()).padStart(2, "0");
       const s = String(now.getSeconds()).padStart(2, "0");
-
       document.getElementById("clock").textContent = `${h}:${m}:${s}`;
     }
 
