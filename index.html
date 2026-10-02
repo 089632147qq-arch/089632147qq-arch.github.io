@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Furong's phone</title>
+<title>安卓手机界面</title>
 <style>
   * {
     margin: 0;
@@ -12,15 +12,18 @@
     font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   }
 
+  html, body {
+    height: 100%;
+    overflow: hidden;      /* 禁止滚动，一屏放下 */
+  }
+
   body {
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;  /* 改为顶部对齐 */
+    justify-content: center;   /* 垂直居中 */
     align-items: center;
     background: #1a1a2e;
-    padding-top: 40px;            /* 顶部留白 */
-    padding-bottom: 60px;         /* 底部留白，避免被浏览器栏挡住 */
+    gap: 14px;
   }
 
   /* 屏幕上方的文字 */
@@ -29,20 +32,19 @@
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1px;
-    margin-bottom: 16px;
     text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
   }
 
-  /* 手机外壳 */
+  /* 手机外壳：用 vh 限制高度，宽度按比例来 */
   .phone {
-    width: 360px;
-    height: 621px;
+    height: min(72vh, 621px);   /* 最多占屏幕高度 72% */
+    aspect-ratio: 360 / 621;    /* 保持外壳比例 */
     background: #000;
-    border-radius: 40px;
-    padding: 12px;
+    border-radius: 8vmin;
+    padding: 3.2% 3.2%;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    position: relative;
-    flex-shrink: 0;
+    display: flex;
   }
 
   /* 屏幕（白色壁纸，9:16） */
@@ -50,18 +52,18 @@
     width: 100%;
     height: 100%;
     background: #ffffff;
-    border-radius: 30px;
+    border-radius: 6vmin;
     overflow: hidden;
     position: relative;
   }
 
   /* 顶部状态栏 */
   .status-bar {
-    height: 48px;
+    height: 12%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 22px;
+    padding: 0 6%;
     position: relative;
   }
 
