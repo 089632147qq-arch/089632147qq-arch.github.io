@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>安卓手机界面</title>
+<title>Furong's phone</title>
 <style>
   * {
     margin: 0;
@@ -16,9 +16,11 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;  /* 改为顶部对齐 */
     align-items: center;
     background: #1a1a2e;
+    padding-top: 40px;            /* 顶部留白 */
+    padding-bottom: 60px;         /* 底部留白，避免被浏览器栏挡住 */
   }
 
   /* 屏幕上方的文字 */
@@ -40,6 +42,7 @@
     padding: 12px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
     position: relative;
+    flex-shrink: 0;
   }
 
   /* 屏幕（白色壁纸，9:16） */
