@@ -43,7 +43,7 @@
 
   /* 顶部状态栏 */
   .status-bar {
-    height: 44px;
+    height: 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,13 +64,13 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 11px;
-    height: 11px;
+    width: 18px;
+    height: 18px;
     background: #000;
     border-radius: 50%;
   }
 
-  /* 右侧留白（对应状态栏图标区） */
+  /* 右侧留白 */
   .status-right {
     width: 60px;
   }
@@ -80,9 +80,8 @@
 
   <div class="phone">
     <div class="screen">
-      <!-- 状态栏 -->
       <div class="status-bar">
-        <span class="status-time" id="clock">14:12:34</span>
+        <span class="status-time" id="clock">14:12</span>
         <div class="camera-hole"></div>
         <div class="status-right"></div>
       </div>
@@ -94,8 +93,7 @@
       const now = new Date();
       const h = String(now.getHours()).padStart(2, "0");
       const m = String(now.getMinutes()).padStart(2, "0");
-      const s = String(now.getSeconds()).padStart(2, "0");
-      document.getElementById("clock").textContent = `${h}:${m}:${s}`;
+      document.getElementById("clock").textContent = `${h}:${m}`;
     }
 
     updateClock();
