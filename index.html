@@ -14,19 +14,18 @@
 
   html, body {
     height: 100%;
-    overflow: hidden;      /* 禁止滚动，一屏放下 */
+    overflow: hidden;
   }
 
   body {
     display: flex;
     flex-direction: column;
-    justify-content: center;   /* 垂直居中 */
+    justify-content: center;
     align-items: center;
     background: #1a1a2e;
     gap: 14px;
   }
 
-  /* 屏幕上方的文字 */
   .phone-label {
     color: #ffffff;
     font-size: 18px;
@@ -36,10 +35,9 @@
     flex-shrink: 0;
   }
 
-  /* 手机外壳：用 vh 限制高度，宽度按比例来 */
   .phone {
-    height: min(72vh, 621px);   /* 最多占屏幕高度 72% */
-    aspect-ratio: 360 / 621;    /* 保持外壳比例 */
+    height: min(72vh, 621px);
+    aspect-ratio: 360 / 621;
     background: #000;
     border-radius: 8vmin;
     padding: 3.2% 3.2%;
@@ -47,7 +45,6 @@
     display: flex;
   }
 
-  /* 屏幕（白色壁纸，9:16） */
   .screen {
     width: 100%;
     height: 100%;
@@ -57,7 +54,6 @@
     position: relative;
   }
 
-  /* 顶部状态栏 */
   .status-bar {
     height: 12%;
     display: flex;
@@ -65,16 +61,15 @@
     align-items: center;
     padding: 0 6%;
     position: relative;
+    z-index: 10;
   }
 
-  /* 左上角时间 */
   .status-time {
     font-size: 15px;
     font-weight: 500;
     color: #111;
   }
 
-  /* 正中间挖孔摄像头 */
   .camera-hole {
     position: absolute;
     left: 50%;
@@ -86,9 +81,251 @@
     border-radius: 50%;
   }
 
-  /* 右侧留白 */
   .status-right {
     width: 60px;
+  }
+
+  /* ========== 锁屏界面 ========== */
+  .lock-screen {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #0d0d1a 0%, #1a1a2e 100%);
+    color: #fff;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .lock-screen.hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+  }
+
+  .lock-time {
+    font-size: 56px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .lock-date {
+    font-size: 14px;
+    color: #9aa0b5;
+    margin-bottom: 40px;
+  }
+
+  .notification {
+    width: 82%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-bottom: 36px;
+    backdrop-filter: blur(6px);
+    animation: pop 0.6s ease;
+  }
+
+  @keyframes pop {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .noti-title {
+    font-size: 12px;
+    color: #8d94ab;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .noti-text {
+    font-size: 14px;
+    color: #e8eaf3;
+    line-height: 1.4;
+  }
+
+  .password-dots {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1.5px solid #5a6178;
+    transition: all 0.2s ease;
+  }
+
+  .dot.filled {
+    background: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+
+  .lock-hint {
+    font-size: 12px;
+    color: #6b7288;
+    letter-spacing: 1px;
+  }
+
+  .shake {
+    animation: shake 0.4s ease;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-10px); }
+    40% { transform: translateX(10px); }
+    60% { transform: translateX(-8px); }
+    80% { transform: translateX(8px); }
+  }
+
+  .keypad {
+    position: absolute;
+    bottom: 5%;
+    width: 78%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .key {
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 20px;
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, transform 0.1s ease;
+  }
+
+  .key:active {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(0.94);
+  }
+
+  .key.empty {
+    background: transparent;
+    border: none;
+    cursor: default;
+  }
+
+  /* ========== 解锁后的桌面 ========== */
+  .home-screen {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #1a1a2e 0%, #0d0d1a 100%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 22% 12% 12%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease 0.2s;
+  }
+
+  .home-screen.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .app-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .app-name {
+    font-size: 11px;
+    color: #d5d9e8;
+    letter-spacing: 0.5px;
+  }
+
+  .icon-note { background: linear-gradient(135deg, #ffcc00, #ff9500); }
+
+  /* ========== 备忘录界面 ========== */
+  .note-screen {
+    position: absolute;
+    inset: 0;
+    background: #f7f7f9;
+    color: #111;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: 20;
+  }
+
+  .note-screen.open {
+    transform: translateX(0);
+  }
+
+  .note-header {
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6%;
+    border-bottom: 1px solid #e5e5ea;
+    background: #fff;
+  }
+
+  .note-title {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .note-back {
+    font-size: 14px;
+    color: #007aff;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .note-body {
+    flex: 1;
+    padding: 8% 7%;
+    overflow-y: auto;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #222;
+    word-break: break-all;
+  }
+
+  .note-body .morse {
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    letter-spacing: 2px;
+    color: #333;
+  }
+
+  .note-body .chinese {
+    font-weight: 600;
+    font-size: 17px;
+    margin-right: 4px;
   }
 </style>
 </head>
@@ -98,24 +335,177 @@
 
   <div class="phone">
     <div class="screen">
+
+      <!-- 状态栏 -->
       <div class="status-bar">
         <span class="status-time" id="clock">14:12</span>
         <div class="camera-hole"></div>
         <div class="status-right"></div>
       </div>
+
+      <!-- 锁屏界面 -->
+      <div class="lock-screen" id="lockScreen">
+        <div class="lock-time" id="lockTime">14:12</div>
+        <div class="lock-date" id="lockDate">星期一 1月1日</div>
+
+        <div class="notification">
+          <div class="noti-title">未知号码 · 刚刚</div>
+          <div class="noti-text">手机已锁定，请输入 6 位密码解锁。</div>
+        </div>
+
+        <div class="password-dots" id="dots">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+
+        <div class="lock-hint" id="hint">输入密码解锁</div>
+
+        <div class="keypad" id="keypad">
+          <div class="key" data-num="1">1</div>
+          <div class="key" data-num="2">2</div>
+          <div class="key" data-num="3">3</div>
+          <div class="key" data-num="4">4</div>
+          <div class="key" data-num="5">5</div>
+          <div class="key" data-num="6">6</div>
+          <div class="key" data-num="7">7</div>
+          <div class="key" data-num="8">8</div>
+          <div class="key" data-num="9">9</div>
+          <div class="key empty"></div>
+          <div class="key" data-num="0">0</div>
+          <div class="key" id="deleteKey">⌫</div>
+        </div>
+      </div>
+
+      <!-- 解锁后的桌面（只有一个备忘录） -->
+      <div class="home-screen" id="homeScreen">
+        <div class="app" id="noteApp">
+          <div class="app-icon icon-note">📝</div>
+          <div class="app-name">备忘录</div>
+        </div>
+      </div>
+
+      <!-- 备忘录详情页 -->
+      <div class="note-screen" id="noteScreen">
+        <div class="note-header">
+          <div class="note-back" id="noteBack">‹ 返回</div>
+          <div class="note-title">备忘录</div>
+          <div style="width:40px"></div>
+        </div>
+        <div class="note-body">
+          <span class="chinese">我在</span><span class="morse">-..- .... ... ....- ----. ..--- ---.. -.... ....- ---.. ....- ..... .</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <script>
+    // ========= 时间 =========
     function updateClock() {
       const now = new Date();
       const h = String(now.getHours()).padStart(2, "0");
       const m = String(now.getMinutes()).padStart(2, "0");
       document.getElementById("clock").textContent = `${h}:${m}`;
-    }
+      document.getElementById("lockTime").textContent = `${h}:${m}`;
 
+      const week = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"][now.getDay()];
+      document.getElementById("lockDate").textContent =
+        `${week} ${now.getMonth() + 1}月${now.getDate()}日`;
+    }
     updateClock();
     setInterval(updateClock, 1000);
+
+    // ========= 密码逻辑 =========
+    // 密码：鞍山邮编 165302
+    const CORRECT_PASSWORD = "165302";
+
+    let input = "";
+    const dots = document.querySelectorAll(".dot");
+    const hint = document.getElementById("hint");
+    const lockScreen = document.getElementById("lockScreen");
+    const homeScreen = document.getElementById("homeScreen");
+    const keypad = document.getElementById("keypad");
+
+    function renderDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("filled", i < input.length);
+      });
+    }
+
+    function checkPassword() {
+      if (input === CORRECT_PASSWORD) {
+        hint.textContent = "解锁成功";
+        hint.style.color = "#4cd964";
+        setTimeout(() => {
+          lockScreen.classList.add("hidden");
+          homeScreen.classList.add("visible");
+        }, 400);
+      } else {
+        hint.textContent = "密码错误";
+        hint.style.color = "#ff3b30";
+        lockScreen.classList.add("shake");
+        setTimeout(() => {
+          lockScreen.classList.remove("shake");
+          input = "";
+          renderDots();
+          hint.textContent = "输入密码解锁";
+          hint.style.color = "#6b7288";
+        }, 500);
+      }
+    }
+
+    keypad.addEventListener("click", (e) => {
+      const key = e.target.closest(".key");
+      if (!key || key.classList.contains("empty")) return;
+
+      if (key.id === "deleteKey") {
+        input = input.slice(0, -1);
+        renderDots();
+        return;
+      }
+
+      const num = key.dataset.num;
+      if (!num) return;
+
+      if (input.length < 6) {
+        input += num;
+        renderDots();
+      }
+
+      if (input.length === 6) {
+        setTimeout(checkPassword, 200);
+      }
+    });
+
+    // 键盘支持（方便调试）
+    document.addEventListener("keydown", (e) => {
+      if (lockScreen.classList.contains("hidden")) return;
+      if (e.key >= "0" && e.key <= "9" && input.length < 6) {
+        input += e.key;
+        renderDots();
+        if (input.length === 6) setTimeout(checkPassword, 200);
+      } else if (e.key === "Backspace") {
+        input = input.slice(0, -1);
+        renderDots();
+      }
+    });
+
+    // ========= 备忘录打开 / 关闭 =========
+    const noteApp = document.getElementById("noteApp");
+    const noteScreen = document.getElementById("noteScreen");
+    const noteBack = document.getElementById("noteBack");
+
+    noteApp.addEventListener("click", () => {
+      noteScreen.classList.add("open");
+    });
+
+    noteBack.addEventListener("click", () => {
+      noteScreen.classList.remove("open");
+    });
   </script>
 
 </body>
