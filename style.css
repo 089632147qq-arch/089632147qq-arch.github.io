@@ -1,0 +1,55 @@
+*{box-sizing:border-box}
+:root{--ink:#111;--muted:#777;--line:#e8e8e8;--paper:#fff;--soft:#f5f5f3;--max:1120px}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"DM Sans","Noto Sans JP",sans-serif;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.section-wrap{width:min(var(--max),calc(100% - 56px));margin-inline:auto}
+.site-header{height:78px;padding:0 max(28px,calc((100vw - var(--max))/2));display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);background:rgba(255,255,255,.94);position:sticky;top:0;z-index:10;backdrop-filter:blur(12px)}
+.wordmark{font-size:23px;font-weight:700;letter-spacing:-1.2px}.wordmark span{font-weight:400}.wordmark i{font-style:normal}
+.main-nav{display:flex;gap:34px;margin-left:auto;margin-right:42px}.main-nav a{font-size:12px;font-weight:600;letter-spacing:.08em}.main-nav a:hover,.text-link:hover{opacity:.55}
+.header-actions{display:flex;align-items:center;gap:18px}.language-switch{display:flex;gap:5px}.lang-btn{border:0;background:transparent;color:#999;padding:5px 7px;font-size:10px;cursor:pointer}.lang-btn.active{background:#111;color:#fff}.menu-toggle{display:none;border:0;background:none;font-size:22px}
+.hero{min-height:650px;padding-top:120px;position:relative;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px}
+.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:700;color:#777;margin:0 0 22px}
+.hero h1{font-size:clamp(48px,7vw,86px);letter-spacing:-.075em;line-height:1.02;margin:0 0 28px;font-weight:600}.hero h1 span{font-weight:400}
+.hero-description{max-width:440px;color:#555;font-size:14px;line-height:2;margin:0 0 35px}
+.text-link{display:inline-flex;gap:25px;align-items:center;font-size:12px;font-weight:700;border-bottom:1px solid #111;padding-bottom:10px}.text-link b{font-size:18px;font-weight:400}
+.hero-art{height:390px;background:#f1f1ef;position:relative;overflow:hidden;display:grid;place-items:center}
+.art-circle{position:absolute;border:1px solid #111;border-radius:50%;width:310px;height:310px}.circle-one{transform:translate(-34px,-10px)}.circle-two{width:220px;height:220px;transform:translate(55px,52px);background:#111}
+.art-line{position:absolute;width:150%;height:1px;background:#777;transform:rotate(-43deg)}
+.art-label{position:relative;color:#fff;font-size:17px;line-height:1.15;letter-spacing:.12em;font-weight:700;text-align:center;transform:translate(27px,26px)}
+.art-index{position:absolute;bottom:18px;right:20px;font-size:9px;letter-spacing:.14em}
+.hero-bottom{position:absolute;bottom:28px;left:0;right:0;display:flex;justify-content:space-between;color:#888;font-size:9px;letter-spacing:.15em}
+.content-section{padding-top:115px;padding-bottom:115px;border-top:1px solid var(--line)}
+.section-heading{margin-bottom:52px}.section-heading .eyebrow{margin-bottom:12px}.section-heading h2{font-size:clamp(34px,5vw,48px);letter-spacing:-.06em;margin:0;font-weight:500}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}.about-lead{font-size:clamp(24px,3vw,34px);font-weight:500;line-height:1.65;letter-spacing:-.04em;margin:0}.about-body{max-width:500px;font-size:14px;color:#444;line-height:2}.about-body p{margin:0 0 18px}.muted,.edit-hint{color:#999;font-size:11px}
+.tag-row{display:flex;flex-wrap:wrap;gap:9px;margin-top:42px}.tag-row span{border:1px solid #ddd;border-radius:100px;padding:8px 13px;font-size:9px;letter-spacing:.1em;color:#555}
+.section-intro{font-size:13px;color:#777;margin:15px 0 0}
+.member-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.member-card{padding:25px 20px 28px 0;min-height:190px;border-right:1px solid var(--line)}.member-card:not(:first-child){padding-left:20px}.member-card:last-child{border-right:0}
+.member-number{font-size:10px;color:#999;letter-spacing:.12em}.member-card h3{font-size:19px;margin:23px 0 5px;letter-spacing:-.04em}.member-role{font-size:10px;font-weight:700;margin:0 0 13px}.member-desc{font-size:11px;color:#888;margin:0;line-height:1.8}.edit-hint{margin-top:18px}
+.works-section{background:var(--soft);padding-top:105px;padding-bottom:105px}.works-heading{display:flex;align-items:end;justify-content:space-between}.works-heading .section-intro{margin-bottom:8px}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.work-cover{aspect-ratio:1.22;display:grid;place-items:center;overflow:hidden;position:relative}.work-cover span{font-size:12px;font-weight:700;letter-spacing:.16em;line-height:1.4;text-align:center}.cover-one{background:#dededb}.cover-one:before{content:"";position:absolute;width:58%;height:58%;border:1px solid #111;border-radius:50%}.cover-two{background:#222;color:#fff}.cover-two:before{content:"";position:absolute;width:55%;height:55%;border:1px solid #fff;transform:rotate(45deg)}.cover-three{background:#c9c9c5}.cover-three:before{content:"";position:absolute;width:70%;height:1px;background:#111;transform:rotate(-35deg)}.work-cover span{position:relative}
+.work-meta{display:flex;justify-content:space-between;align-items:center;padding-top:15px}.work-meta h3{font-size:14px;margin:0 0 3px}.work-meta p{font-size:10px;color:#888;margin:0}.work-meta>a{font-size:20px}
+.contact-panel{padding:38px 42px;background:var(--soft);max-width:760px}.contact-panel>p:first-child{font-size:14px;color:#555;margin:0 0 25px}.contact-link{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #aaa;padding-bottom:12px;font-size:clamp(18px,3vw,26px);font-weight:500;letter-spacing:-.04em}.contact-link span{font-size:18px}.contact-panel .edit-hint{margin:20px 0 0}
+.site-footer{min-height:130px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:20px}.footer-mark{font-size:19px}.site-footer p,.site-footer>span{font-size:10px;color:#888}
+@media(max-width:760px){.section-wrap{width:calc(100% - 38px)}.site-header{height:68px;padding:0 19px}.main-nav{display:none;position:fixed;inset:0;background:rgba(255,255,255,.97);padding:90px 22px;flex-direction:column;gap:28px;margin:0;align-items:center;justify-content:center}.main-nav.open{display:flex;position:fixed;inset:0;z-index:20;background:rgba(255,255,255,.97);align-items:center;justify-content:center;gap:34px;flex-direction:column;padding:90px 24px}
+.main-nav.open a{font-size:clamp(26px,6vw,42px);letter-spacing:-.04em}
+.site-header:has(.main-nav.open){z-index:30}
+.site-header:has(.main-nav.open) .wordmark,.site-header:has(.main-nav.open) .header-actions{position:relative;z-index:31}.menu-toggle{display:block}.header-actions{gap:12px}.hero{padding-top:75px;padding-bottom:80px;min-height:auto;grid-template-columns:1fr;gap:42px}.hero h1{font-size:clamp(48px,13vw,72px)}.hero-art{height:280px}.hero-bottom{bottom:25px;font-size:8px}.content-section{padding-top:78px;padding-bottom:78px}.about-grid{grid-template-columns:1fr;gap:20px}.member-grid{grid-template-columns:repeat(2,1fr)}.member-card{padding:20px 14px 22px 0;min-height:175px}.member-card:nth-child(2){border-right:0;padding-left:14px}.member-card:nth-child(3){padding-left:0}.member-card:nth-child(4){border-right:0;padding-left:14px}.works-heading{display:block}.works-grid{grid-template-columns:1fr;gap:28px}.work-cover{aspect-ratio:1.45}.works-section{padding-top:78px;padding-bottom:78px}.contact-panel{padding:27px 22px}.site-footer{padding-top:25px;padding-bottom:25px;min-height:120px;flex-wrap:wrap}.site-footer p{order:3;width:100%;margin:0}}
+
+/* DreamStant identity background */
+.content-section:not(.works-section){background:rgba(255,255,255,.88)}
+.works-section{background:rgba(245,245,243,.91)}
+.contact-panel{background:rgba(245,245,243,.94)}
+@media(max-width:760px){.main-nav.open{display:flex}.main-nav.open a{font-size:30px}}
+
+/* The supplied Fu/X artwork belongs to member 01's card only. */
+.member-card:first-child{
+  background-image:linear-gradient(to bottom,rgba(255,255,255,.05) 0%,rgba(255,255,255,.08) 48%,rgba(255,255,255,.94) 100%),url("assets/dreamstant-background.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  padding-left:18px;
+  padding-right:18px;
+}
