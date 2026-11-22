@@ -235,4 +235,9 @@ button{font:inherit}
     color: #999;
   }
 }
-
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #111 !important;
+    color: #fff !important;
+  }
+}
