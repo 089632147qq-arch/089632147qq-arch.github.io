@@ -41,3 +41,198 @@ button{font:inherit}
 .contact-panel{background:rgba(245,245,243,.94)}
 
 .main-nav.open{display:flex}
+
+/* ========================================
+   DreamStant — Automatic Dark Mode
+   Follows the device's system appearance
+======================================== */
+
+@media (prefers-color-scheme: dark) {
+
+  :root {
+    color-scheme: dark;
+
+    --ink: #f2f2f2;
+    --muted: #aaa;
+    --line: #303030;
+    --paper: #111111;
+    --soft: #1b1b1b;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  /* Header */
+  .site-header {
+    background: rgba(17, 17, 17, .94);
+    border-color: var(--line);
+  }
+
+  .main-nav {
+    background: #111;
+    border-color: var(--line);
+  }
+
+  .menu-toggle {
+    color: var(--ink);
+  }
+
+  .lang-btn {
+    color: #999;
+  }
+
+  .lang-btn.active {
+    background: #f2f2f2;
+    color: #111;
+  }
+
+  /* Hero */
+  .eyebrow {
+    color: #aaa;
+  }
+
+  .hero-description {
+    color: #bbb;
+  }
+
+  .text-link {
+    border-color: #eee;
+  }
+
+  .hero-art {
+    background: #242424;
+  }
+
+  .art-circle {
+    border-color: #eee;
+  }
+
+  .circle-two {
+    background: #eee;
+  }
+
+  .art-label {
+    color: #111;
+  }
+
+  .art-line {
+    background: #777;
+  }
+
+  .hero-bottom {
+    color: #999;
+  }
+
+  /* Sections */
+  .content-section {
+    border-color: var(--line);
+  }
+
+  .content-section:not(.works-section) {
+    background: rgba(17, 17, 17, .94);
+  }
+
+  .section-heading .eyebrow {
+    color: #aaa;
+  }
+
+  .about-body {
+    color: #bbb;
+  }
+
+  .muted,
+  .edit-hint {
+    color: #999;
+  }
+
+  .tag-row span {
+    border-color: #444;
+    color: #bbb;
+  }
+
+  .section-intro {
+    color: #aaa;
+  }
+
+  /* Members */
+  .member-grid {
+    border-color: var(--line);
+  }
+
+  .member-card {
+    border-color: var(--line);
+  }
+
+  .member-number {
+    color: #999;
+  }
+
+  .member-role {
+    color: #eee;
+  }
+
+  .member-desc {
+    color: #aaa;
+  }
+
+  /* Works */
+  .works-section {
+    background: rgba(27, 27, 27, .96);
+  }
+
+  .cover-one {
+    background: #383838;
+  }
+
+  .cover-one:before {
+    border-color: #eee;
+  }
+
+  .cover-two {
+    background: #ddd;
+    color: #111;
+  }
+
+  .cover-two:before {
+    border-color: #111;
+  }
+
+  .cover-three {
+    background: #484848;
+  }
+
+  .cover-three:before {
+    background: #eee;
+  }
+
+  .work-meta p {
+    color: #aaa;
+  }
+
+  /* Contact */
+  .contact-panel {
+    background: rgba(32, 32, 32, .96);
+  }
+
+  .contact-panel > p:first-child {
+    color: #bbb;
+  }
+
+  .contact-link {
+    border-color: #666;
+    color: #eee;
+  }
+
+  /* Footer */
+  .site-footer {
+    border-color: var(--line);
+  }
+
+  .site-footer p,
+  .site-footer > span {
+    color: #999;
+  }
+}
+
