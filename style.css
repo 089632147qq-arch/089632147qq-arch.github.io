@@ -241,3 +241,7 @@ button{font:inherit}
     color: #fff !important;
   }
 }
+/* CSS loading test */
+body {
+  background: #ff00ff !important;
+}
