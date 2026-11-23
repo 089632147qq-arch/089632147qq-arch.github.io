@@ -83,7 +83,7 @@ const translations = {
     heroArtLabel: "黑白抽象图形",
 
     heroEyebrow: "独立创作社团",
-    heroTitle: "让想法<br><span>成为现实。</span>",
+    heroTitle: "让音乐<br><span>连接世界</span>",
     heroText: "以音乐为中心，将每个人的想法与表达转化为作品的创作社团。",
     discover: "了解 DreamStant",
     heroBottom: "让灵感、音乐与表达在这里相遇。",
