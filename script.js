@@ -1,8 +1,10 @@
+
 const translations = {
   ja: {
     navAbout: "私たちについて",
     navMembers: "メンバー",
     navWorks: "作品",
+    navProjects: "開発プロジェクト",
     navContact: "お問い合わせ",
 
     navLabel: "メインナビゲーション",
@@ -48,7 +50,15 @@ const translations = {
     workType02: "カバー / 2026",
     workType03: "映像作品 / 2026",
 
-    contactEyebrow: "04 / お問い合わせ",
+    projectsEyebrow: "04 / 開発プロジェクト",
+    projectsTitle: "開発プロジェクト",
+    projectsIntro: "開発中のソフトウェアや音源プロジェクトを紹介します。",
+    projectFrStudio: "UTAUに対応したエディター。",
+    projectFsTxt: "FR Studio専用の音源録音方法。",
+    projectUSinger: "FuRongが録音したUTAU音源。",
+    projectFSinger: "FuRongが録音したF Singer音源。",
+
+    contactEyebrow: "05 / お問い合わせ",
     contactTitle: "お問い合わせ",
     contactText: "コラボレーションやお問い合わせは、下記のリンクからご連絡ください。",
 
@@ -61,6 +71,7 @@ const translations = {
     navAbout: "关于我们",
     navMembers: "成员",
     navWorks: "作品",
+    navProjects: "开发项目",
     navContact: "联系",
 
     navLabel: "主导航",
@@ -106,7 +117,15 @@ const translations = {
     workType02: "翻唱 / 2026",
     workType03: "视频作品 / 2026",
 
-    contactEyebrow: "04 / 联系",
+    projectsEyebrow: "04 / 开发项目",
+    projectsTitle: "开发项目",
+    projectsIntro: "这里介绍正在开发的软件与音源项目。",
+    projectFrStudio: "一个支持 UTAU 的编辑器。",
+    projectFsTxt: "FR Studio 专用的音源录制方法。",
+    projectUSinger: "由 FuRong 录制的 UTAU 音源。",
+    projectFSinger: "由 FuRong 录制的 F Singer 音源。",
+
+    contactEyebrow: "05 / 联系",
     contactTitle: "联系",
     contactText: "如需合作或有其他问题，请通过下方联系方式联系。",
 
@@ -119,6 +138,7 @@ const translations = {
     navAbout: "About",
     navMembers: "Members",
     navWorks: "Works",
+    navProjects: "Development Projects",
     navContact: "Contact",
 
     navLabel: "Main navigation",
@@ -164,7 +184,15 @@ const translations = {
     workType02: "Cover / 2026",
     workType03: "Video Work / 2026",
 
-    contactEyebrow: "04 / CONTACT",
+    projectsEyebrow: "04 / DEVELOPMENT PROJECTS",
+    projectsTitle: "Development Projects",
+    projectsIntro: "Software and voicebank projects currently in development.",
+    projectFrStudio: "An editor with support for UTAU.",
+    projectFsTxt: "A dedicated voicebank recording method for FR Studio.",
+    projectUSinger: "A UTAU voicebank recorded by FuRong.",
+    projectFSinger: "An F Singer voicebank recorded by FuRong.",
+
+    contactEyebrow: "05 / CONTACT",
     contactTitle: "Contact",
     contactText: "For collaborations and other inquiries, please use the contact link below.",
 
