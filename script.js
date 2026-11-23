@@ -62,7 +62,7 @@ const translations = {
     contactTitle: "お問い合わせ",
     contactText: "コラボレーションやお問い合わせは、下記のリンクからご連絡ください。",
 
-    footerText: "アイデアを、かたちに。",
+    footerText: "音楽で世界をつなぐ。",
     pageTitle: "DreamStant — Creative Circle",
     pageDescription: "DreamStant — 音楽と創作を楽しむクリエイティブサークル。"
   },
@@ -129,7 +129,7 @@ const translations = {
     contactTitle: "联系",
     contactText: "如需合作或有其他问题，请通过下方联系方式联系。",
 
-    footerText: "让想法成为现实。",
+    footerText: "让音乐连接世界。",
     pageTitle: "DreamStant — 创作社团",
     pageDescription: "DreamStant — 一个享受音乐与创作的独立社团。"
   },
@@ -196,7 +196,7 @@ const translations = {
     contactTitle: "Contact",
     contactText: "For collaborations and other inquiries, please use the contact link below.",
 
-    footerText: "Ideas become something real.",
+    footerText: "Let music connect the world.",
     pageTitle: "DreamStant — Creative Circle",
     pageDescription: "DreamStant — An independent creative circle for music and creative works."
   }
