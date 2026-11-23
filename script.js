@@ -1,10 +1,17 @@
-
 const translations = {
   ja: {
     navAbout: "私たちについて",
     navMembers: "メンバー",
     navWorks: "作品",
     navContact: "お問い合わせ",
+
+    navLabel: "メインナビゲーション",
+    languageLabel: "言語",
+    homeLabel: "DreamStant ホーム",
+    menuOpen: "メニューを開く",
+    menuClose: "メニューを閉じる",
+    workLink: "作品について問い合わせる",
+    heroArtLabel: "モノクロの抽象的なグラフィック",
 
     heroEyebrow: "独立系クリエイティブサークル",
     heroTitle: "Ideas become<br><span>something real.</span>",
@@ -13,11 +20,18 @@ const translations = {
     heroBottom: "アイデアと音楽、表現が出会う場所。",
     artLabel: "共に<br>創る",
 
+    aboutEyebrow: "01 / 私たちについて",
     aboutTitle: "私たちについて",
     aboutLead: "好きなものを、好きな形で。<br>創作を通じて、アイデアをつなぐ。",
     aboutText: "DreamStantは、音楽や映像などの創作を楽しむクリエイティブサークルです。メンバーそれぞれの得意分野を持ち寄り、ひとつの作品を作り上げていきます。",
-    aboutNote: "ここに正式な活動方針や設立の経緯を追加できます。",
 
+    tagSynthesis: "歌声合成",
+    tagMusic: "音楽",
+    tagLyrics: "作詞",
+    tagVideo: "映像",
+    tagCreation: "創作",
+
+    membersEyebrow: "02 / メンバー",
     membersTitle: "メンバー",
     membersIntro: "それぞれの役割を持ち寄り、一緒に作品を作っています。",
 
@@ -26,6 +40,7 @@ const translations = {
     role03: "作曲 / 編曲",
     role04: "編曲 / 調声 / ミックス",
 
+    worksEyebrow: "03 / 作品",
     worksTitle: "作品",
     worksIntro: "DreamStantの作品を紹介します。",
     workSample: "作品タイトル",
@@ -33,10 +48,13 @@ const translations = {
     workType02: "カバー / 2026",
     workType03: "映像作品 / 2026",
 
+    contactEyebrow: "04 / お問い合わせ",
     contactTitle: "お問い合わせ",
     contactText: "コラボレーションやお問い合わせは、下記のリンクからご連絡ください。",
 
-    footerText: "アイデアを、かたちに。"
+    footerText: "アイデアを、かたちに。",
+    pageTitle: "DreamStant — Creative Circle",
+    pageDescription: "DreamStant — 音楽と創作を楽しむクリエイティブサークル。"
   },
 
   zh: {
@@ -45,6 +63,14 @@ const translations = {
     navWorks: "作品",
     navContact: "联系",
 
+    navLabel: "主导航",
+    languageLabel: "语言",
+    homeLabel: "DreamStant 首页",
+    menuOpen: "打开菜单",
+    menuClose: "关闭菜单",
+    workLink: "咨询这件作品",
+    heroArtLabel: "黑白抽象图形",
+
     heroEyebrow: "独立创作社团",
     heroTitle: "让想法<br><span>成为现实。</span>",
     heroText: "以音乐为中心，将每个人的想法与表达转化为作品的创作社团。",
@@ -52,11 +78,18 @@ const translations = {
     heroBottom: "让灵感、音乐与表达在这里相遇。",
     artLabel: "共同<br>创作",
 
+    aboutEyebrow: "01 / 关于我们",
     aboutTitle: "关于我们",
     aboutLead: "以喜欢的方式，创作喜欢的东西。<br>让想法在创作中连接。",
     aboutText: "DreamStant 是一个享受音乐、影像等创作的社团。成员发挥各自所长，共同完成一件件作品。",
-    aboutNote: "这里可以补充正式的活动方针与成立经过。",
 
+    tagSynthesis: "歌声合成",
+    tagMusic: "音乐",
+    tagLyrics: "作词",
+    tagVideo: "影像",
+    tagCreation: "创作",
+
+    membersEyebrow: "02 / 成员",
     membersTitle: "成员",
     membersIntro: "成员各自负责不同领域，一起完成作品。",
 
@@ -65,17 +98,21 @@ const translations = {
     role03: "作曲 / 编曲",
     role04: "编曲 / 调声 / 混音",
 
+    worksEyebrow: "03 / 作品",
     worksTitle: "作品集",
     worksIntro: "这里展示 DreamStant 的创作。",
     workSample: "作品标题",
     workType01: "原创歌曲 / 2026",
     workType02: "翻唱 / 2026",
-    workType03: "视频 / 2026",
+    workType03: "视频作品 / 2026",
 
+    contactEyebrow: "04 / 联系",
     contactTitle: "联系",
     contactText: "如需合作或有其他问题，请通过下方联系方式联系。",
 
-    footerText: "让想法成为现实。"
+    footerText: "让想法成为现实。",
+    pageTitle: "DreamStant — 创作社团",
+    pageDescription: "DreamStant — 一个享受音乐与创作的独立社团。"
   },
 
   en: {
@@ -84,6 +121,14 @@ const translations = {
     navWorks: "Works",
     navContact: "Contact",
 
+    navLabel: "Main navigation",
+    languageLabel: "Language",
+    homeLabel: "DreamStant home",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    workLink: "Ask about this work",
+    heroArtLabel: "Abstract monochrome graphic",
+
     heroEyebrow: "INDEPENDENT CREATIVE CIRCLE",
     heroTitle: "Ideas become<br><span>something real.</span>",
     heroText: "A creative circle bringing individual ideas and expressions to life through music and more.",
@@ -91,30 +136,41 @@ const translations = {
     heroBottom: "A PLACE FOR IDEAS, MUSIC & EXPRESSION.",
     artLabel: "Create<br>together",
 
+    aboutEyebrow: "01 / ABOUT US",
     aboutTitle: "About us",
     aboutLead: "Create what you love, in your own way.<br>Connect ideas through creativity.",
     aboutText: "DreamStant is a creative circle that enjoys making music, videos, and other creative works. Members bring their strengths together to make something as a team.",
-    aboutNote: "Add the circle's official mission and founding story here.",
 
+    tagSynthesis: "Vocal Synthesis",
+    tagMusic: "Music",
+    tagLyrics: "Lyrics",
+    tagVideo: "Video",
+    tagCreation: "Creation",
+
+    membersEyebrow: "02 / MEMBERS",
     membersTitle: "Members",
     membersIntro: "Different roles and skills come together to create as a team.",
 
     role01: "Lyrics / Tuning / Management",
-    role02: "Lyrics / PV",
+    role02: "Lyrics / Video Production",
     role03: "Composition / Arrangement",
-    role04: "Arrangement / Tuning / Mix",
+    role04: "Arrangement / Tuning / Mixing",
 
+    worksEyebrow: "03 / WORKS",
     worksTitle: "Selected works",
     worksIntro: "A selection of works by DreamStant.",
     workSample: "Work title",
     workType01: "Original Song / 2026",
     workType02: "Cover / 2026",
-    workType03: "Video / 2026",
+    workType03: "Video Work / 2026",
 
+    contactEyebrow: "04 / CONTACT",
     contactTitle: "Contact",
     contactText: "For collaborations and other inquiries, please use the contact link below.",
 
-    footerText: "Ideas become something real."
+    footerText: "Ideas become something real.",
+    pageTitle: "DreamStant — Creative Circle",
+    pageDescription: "DreamStant — An independent creative circle for music and creative works."
   }
 };
 
@@ -123,16 +179,61 @@ function setLanguage(lang) {
 
   document.documentElement.lang = lang === "zh" ? "zh-CN" : lang;
 
+  // 普通文字
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const value = dict[el.dataset.i18n];
-    if (value !== undefined) el.textContent = value;
+    const key = el.dataset.i18n;
+    if (dict[key] !== undefined) {
+      el.textContent = dict[key];
+    }
   });
 
+  // 允许换行的 HTML 文字
   document.querySelectorAll("[data-i18n-html]").forEach(el => {
-    const value = dict[el.dataset.i18nHtml];
-    if (value !== undefined) el.innerHTML = value;
+    const key = el.dataset.i18nHtml;
+    if (dict[key] !== undefined) {
+      el.innerHTML = dict[key];
+    }
   });
 
+  // 辅助功能标签
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+    const key = el.dataset.i18nAria;
+    if (dict[key] !== undefined) {
+      el.setAttribute("aria-label", dict[key]);
+    }
+  });
+
+  // 导航及语言选择器标签
+  const nav = document.querySelector(".main-nav");
+  const languageSwitch = document.querySelector(".language-switch");
+  const menuButton = document.querySelector(".menu-toggle");
+
+  if (nav) {
+    nav.setAttribute("aria-label", dict.navLabel);
+  }
+
+  if (languageSwitch) {
+    languageSwitch.setAttribute("aria-label", dict.languageLabel);
+  }
+
+  // 菜单按钮
+  if (menuButton) {
+    const isOpen = nav && nav.classList.contains("open");
+    menuButton.setAttribute(
+      "aria-label",
+      isOpen ? dict.menuClose : dict.menuOpen
+    );
+  }
+
+  // 页面标题与描述
+  document.title = dict.pageTitle;
+
+  const description = document.querySelector("#meta-description");
+  if (description) {
+    description.setAttribute("content", dict.pageDescription);
+  }
+
+  // 当前语言按钮状态
   document.querySelectorAll(".lang-btn").forEach(btn => {
     const active = btn.dataset.lang === lang;
     btn.classList.toggle("active", active);
@@ -140,25 +241,51 @@ function setLanguage(lang) {
   });
 }
 
+// 语言切换按钮
 document.querySelectorAll(".lang-btn").forEach(btn => {
-  btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+  btn.addEventListener("click", () => {
+    setLanguage(btn.dataset.lang);
+  });
 });
 
+// 移动端菜单
 const menuButton = document.querySelector(".menu-toggle");
 const nav = document.querySelector(".main-nav");
 
 menuButton.addEventListener("click", () => {
   const open = nav.classList.toggle("open");
+
   menuButton.setAttribute("aria-expanded", String(open));
   menuButton.textContent = open ? "×" : "☰";
+
+  const lang = document.documentElement.lang === "zh-CN"
+    ? "zh"
+    : document.documentElement.lang;
+
+  const dict = translations[lang] || translations.ja;
+
+  menuButton.setAttribute(
+    "aria-label",
+    open ? dict.menuClose : dict.menuOpen
+  );
 });
 
+// 点击导航链接后关闭菜单
 nav.querySelectorAll("a").forEach(link => {
   link.addEventListener("click", () => {
     nav.classList.remove("open");
+
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.textContent = "☰";
+
+    const lang = document.documentElement.lang === "zh-CN"
+      ? "zh"
+      : document.documentElement.lang;
+
+    const dict = translations[lang] || translations.ja;
+    menuButton.setAttribute("aria-label", dict.menuOpen);
   });
 });
 
+// 默认语言
 setLanguage("ja");
