@@ -16,7 +16,7 @@ const translations = {
     heroArtLabel: "モノクロの抽象的なグラフィック",
 
     heroEyebrow: "独立系クリエイティブサークル",
-    heroTitle: "Ideas become<br><span>something real.</span>",
+    heroTitle: "音楽で<br><span>世界をつなぐ</span>",
     heroText: "音楽を中心に、それぞれのアイデアと表現を形にするクリエイティブサークル。",
     discover: "DreamStantについて",
     heroBottom: "アイデアと音楽、表現が出会う場所。",
@@ -150,7 +150,7 @@ const translations = {
     heroArtLabel: "Abstract monochrome graphic",
 
     heroEyebrow: "INDEPENDENT CREATIVE CIRCLE",
-    heroTitle: "Ideas become<br><span>something real.</span>",
+    heroTitle: "Let music<br><span>connect the world.</span>",
     heroText: "A creative circle bringing individual ideas and expressions to life through music and more.",
     discover: "Discover DreamStant",
     heroBottom: "A PLACE FOR IDEAS, MUSIC & EXPRESSION.",
